@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Righteous&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Righteous&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Bree+Serif&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Righteous&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+
+    <!-- fontaswom -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <title>Bookmark</title>
+    <link rel="icon" href="./2899445.png" />
+
+    <link rel="stylesheet" href="./CSS/bootstrap.min.css" />
+    <link rel="stylesheet" href="./CSS/main.css" />
+  </head>
+  <body>
+    <section class="d-flex justify-content-center align-items-center">
+      <div class="container">
+        <h1 class="text-center">BookMarker</h1>
+
+        <div class="content p-4 my-5">
+          <div
+            class="title text-center d-flex justify-content-center align-items-center"
+          >
+            <h2 class="mx-2 px-1">
+              <i class="fa-solid fa-bookmark" aria-hidden="true"></i>
+              Bookmark your favourite sites
+              <i class="fa-solid fa-bookmark" aria-hidden="true"></i>
+            </h2>
+          </div>
+
+          <div class="form">
+            <div class="my-3">
+              <label for="formGroupExampleInput" class="form-label"
+                ><i class="fa-solid fa-book-bookmark mx-2"></i>Site Name</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="siteName"
+                placeholder="Bookmark Name"
+               
+              />
+            </div>
+
+            <div class="my-3">
+              <label for="formGroupExampleInput2" class="form-label"
+                ><i class="fa-solid fa-link mx-2"></i>Site URL</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="siteUrl"
+                placeholder="Website URL"
+              />
+            </div>
+
+            <div class="btn d-flex justify-content-center border-0">
+              <button type="button" onclick="addSite();" class="btn px-5 text-center text-white" id="submitBtn">
+                Submit
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Index</th>
+              <th scope="col">Website Name</th>
+              <th scope="col">Visit</th>
+              <th scope="col">Delete</th>
+            </tr>
+          </thead>
+          <tbody id="tbody">
+            
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="layer" class="layer d-none d-flex justify-content-center align-items-center position-fixed top-0 start-0 end-0 bottom-0 bg-black bg-opacity-50">
+      <div class="inner bg-white p-5 position-relative">
+        <div class="d-flex position-absolute top-0 start-0 ps-3 m-4">
+          <span class="rounded-circle me-2"></span>
+          <span class="rounded-circle me-2"></span>
+          <span class="rounded-circle"></span>
+        </div>
+        <i id="closeIcon" class="fa-solid fa-xmark position-absolute top-0 end-0 m-4"></i>
+        <p>Site Name or Url is not valid, Please follow the rules below :</p>
+        <li class="list-unstyled"><i class="fa-regular fa-circle-right pe-2 text-danger"></i>Site name must contain at least 3 characters</li>
+        <li class="list-unstyled"><i class="fa-regular fa-circle-right pe-2 text-danger"></i>Site URL must be a valid one</li>
+      </div>
+    </section>
+
+    <script src="./JS/bootstrap.bundle.min.js"></script>
+    <script src="./JS/main.js"></script>
+  </body>
+</html>
